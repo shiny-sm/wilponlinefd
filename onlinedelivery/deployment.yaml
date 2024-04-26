@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-django-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myk-django-app
+  template:
+    metadata:
+      labels:
+        app: myk-django-app
+    spec:
+      containers:
+      - name: myk-django-app
+        image: django_onlinefood_app
+        ports:
+        - containerPort: 8000
